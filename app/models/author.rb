@@ -5,6 +5,14 @@ class Author < ApplicationRecord
     self.where("created_at > ?", target_date)
   end
 
+  def self.selector
+    selector = Struct.new(:id, :name)
+    @authors = Author.all.map { |author|
+      name = author.family_name + " " + author.first_name
+      selector.new(author.id, name)
+    }
+  end
+
     def fetch_a_book_by_price(option)
     case option
     when :max
@@ -15,4 +23,5 @@ class Author < ApplicationRecord
       raise StandardError.new("Invalid Argument #{option} for 'option' in #{self.class.name}##{__method__}")
     end
   end
+
 end
