@@ -3,7 +3,7 @@ class RailsExamController < ApplicationController
   end
 
   def errors
-    @author = Author.created_after("2018-01-01 00:00:00").includes(:books)
+    @authors = Author.created_after("2018-01-01 00:00:00").includes(:books)
   end
 
   def backend
