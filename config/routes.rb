@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
 
   resources :books, only: :create
+  resources :authors, only: :show
 end

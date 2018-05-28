@@ -1,7 +1,10 @@
 <tr>
-  <td><%= author.family_name %></td>
-  <td><%= author.first_name %></td>
-  <td> X冊</td>
-  <td><%= author.books.first.title %></td>
-  <td><%= author.books.first.price_with_tax %></td>
+  <td>
+    <%= link_to author_path(author) do %>
+      <%= full_name(author.family_name, author.first_name) %>
+    <% end %>
+  </td>
+  <td><%= author.books.length %></td>
+  <td><%= author.fetch_a_book_by_price(:max).title %></td>
+  <td><%= author.fetch_a_book_by_price(:max).price %></td>
 </tr>

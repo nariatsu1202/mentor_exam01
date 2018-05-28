@@ -1,0 +1,16 @@
+<div>
+  <%= full_name(@author.family_name, @author.first_name) %>
+</div>
+<div>
+  <table>
+    <thead>
+      <%= render partial: "book_header" %>
+    </thead>
+
+    <tbody>
+      <% @books.each do |book| %>
+        <%= render partial: 'book', locals: { book: book } %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

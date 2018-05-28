@@ -13,4 +13,5 @@ class RailsExamController < ApplicationController
   def backend02
     @book = Book.new
   end
+
 end
